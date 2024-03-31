@@ -49,6 +49,16 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-spring-boot-starter-jaxws</artifactId>
+			<version>3.2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-codegen-plugin</artifactId>
+			<version>3.2.4</version>
+		</dependency>
+		<dependency>
 			<groupId>jakarta.xml.bind</groupId>
 			<artifactId>jakarta.xml.bind-api</artifactId>
 			<version>2.3.3</version>
@@ -62,24 +72,30 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>jaxb2-maven-plugin</artifactId>
-				<version>3.1.0</version>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-codegen-plugin</artifactId>
+				<version>3.2.4</version>
 				<executions>
 					<execution>
-						<id>xjc</id>
+						<id>generate-sources</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<sourceRoot>SOAP-example/src/main/java</sourceRoot>
+							<wsdlOptions>
+								<wsdlOption>
+									<wsdl>SOAP-example/src/main/resources/wsdl/wsdlFile.wsdl</wsdl>
+								</wsdlOption>
+							</wsdlOptions>
+						</configuration>
 						<goals>
-							<goal>xjc</goal>
+							<goal>wsdl2java</goal>
 						</goals>
 					</execution>
 				</executions>
-				<configuration>
-					<sources>
-						<source>src/main/resources/schema.xsd</source>
-					</sources>
-					<outputDirectory>src/main/java</outputDirectory>
-					<clearOutputDir>false</clearOutputDir>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>

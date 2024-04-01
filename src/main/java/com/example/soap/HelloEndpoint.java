@@ -11,7 +11,7 @@ public class HelloEndpoint {
     @ResponsePayload
     public GetHelloResponse getHello(@RequestPayload GetHelloRequest request) {
         GetHelloResponse response = new GetHelloResponse();
-        response.setGreeting("Hello, " + request.getName() + "!");
+        response.setMessage("Hello, " + request.getName() + "!");
         return response;
     }
 }

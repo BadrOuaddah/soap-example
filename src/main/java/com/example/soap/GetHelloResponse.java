@@ -1,5 +1,7 @@
 package com.example.soap;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 @XmlRootElement
 public class GetHelloResponse {
 

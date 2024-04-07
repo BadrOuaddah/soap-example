@@ -19,7 +19,7 @@
 
     <xs:complexType name="hello">
         <xs:sequence>
-            <xs:element name="hello-world" type="xs:string"/>
+            <xs:element name="hello" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
 

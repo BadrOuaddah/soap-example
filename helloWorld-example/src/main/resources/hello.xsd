@@ -1,0 +1,26 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://spring.io/guides/gs-producing-web-service"
+           targetNamespace="http://spring.io/guides/gs-producing-web-service" elementFormDefault="qualified">
+
+    <xs:element name="getHelloRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getHelloResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="hello" type="tns:hello"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="hello">
+        <xs:sequence>
+            <xs:element name="hello-world" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

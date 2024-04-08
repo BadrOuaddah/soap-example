@@ -23,7 +23,7 @@ public class HelloEndpoint {
     @ResponsePayload
     public GetHelloResponse getHello(@RequestPayload GetHelloRequest request) {
         GetHelloResponse response = new GetHelloResponse();
-        response.getHello();
+        response.setHello("Hello World");
         return response;
     }
 }

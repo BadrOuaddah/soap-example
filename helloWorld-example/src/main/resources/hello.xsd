@@ -12,7 +12,7 @@
     <xs:element name="getHelloResponse">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="hello" type="tns:hello"/>
+                <xs:element name="hello" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>

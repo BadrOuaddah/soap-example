@@ -1,4 +1,4 @@
-package com.example.hello;
+package com.example.hello.helloServer;
 
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;

@@ -1,4 +1,4 @@
-package com.example.hello;
+package com.example.hello.helloServer;
 
 import io.spring.guides.gs_producing_web_service.Hello;
 import jakarta.annotation.PostConstruct;

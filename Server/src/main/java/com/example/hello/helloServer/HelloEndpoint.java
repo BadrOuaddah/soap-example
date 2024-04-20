@@ -12,13 +12,6 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 public class HelloEndpoint {
     private static final String NAMESPACE_URI = "http://spring.io/guides/gs-producing-web-service";
 
-    private HelloRepository helloRepository;
-
-    @Autowired
-    public HelloEndpoint(HelloRepository helloRepository) {
-        this.helloRepository = helloRepository;
-    }
-
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getHelloRequest")
     @ResponsePayload
     public GetHelloResponse getHello(@RequestPayload GetHelloRequest request) {

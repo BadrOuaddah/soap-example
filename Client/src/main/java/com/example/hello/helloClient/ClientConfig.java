@@ -9,17 +9,22 @@ import org.springframework.ws.client.core.WebServiceTemplate;
 public class ClientConfig {
 
     @Bean
-    public Jaxb2Marshaller marshaller() {
-        Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
-        marshaller.setPackagesToScan("io.spring.guides.gs_producing_web_service");
-        return marshaller;
+    public WebServiceTemplate webServiceTemplate() {
+
+        WebServiceTemplate webServiceTemplate = new WebServiceTemplate();
+
+        webServiceTemplate.setMarshaller(marshaller());
+        webServiceTemplate.setUnmarshaller(marshaller());
+
+        webServiceTemplate.setDefaultUri("http://localhost:8080/ws/hello.wsdl");
+        return webServiceTemplate;
     }
 
     @Bean
-    public WebServiceTemplate webServiceTemplate(Jaxb2Marshaller marshaller) {
-        WebServiceTemplate template = new WebServiceTemplate();
-        template.setMarshaller(marshaller);
-        template.setUnmarshaller(marshaller);
-        return template;
+    public Jaxb2Marshaller marshaller() {
+        Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
+        marshaller.setPackagesToScan("com.example.hello");
+        return marshaller;
     }
+
 }

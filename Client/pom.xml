@@ -43,21 +43,24 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>jaxb2-maven-plugin</artifactId>
-				<version>3.1.0</version>
+				<groupId>com.sun.xml.ws</groupId>
+				<artifactId>jaxws-maven-plugin</artifactId>
+				<version>3.0.0</version>
 				<executions>
 					<execution>
-						<id>xjc</id>
 						<goals>
-							<goal>xjc</goal>
+							<goal>wsimport</goal>
 						</goals>
 					</execution>
 				</executions>
 				<configuration>
-					<sources>
-						<source>${project.basedir}/src/main/resources/hello.xsd</source>
-					</sources>
+					<packageName>com.example.hello.wsdl</packageName>
+					<wsdlUrls>
+						<wsdlUrl>http://localhost:8080/ws/hello.wsdl</wsdlUrl>
+					</wsdlUrls>
+					<sourceDestDir>${sourcesDir}</sourceDestDir>
+					<destDir>${classesDir}</destDir>
+					<extension>true</extension>
 				</configuration>
 			</plugin>
 		</plugins>

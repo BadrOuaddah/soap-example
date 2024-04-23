@@ -1,19 +1,24 @@
 package com.example.hello.helloClient;
 
+import com.example.generated.GetHelloResponse;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
-public class SoapClientApplication {
+public class SoapClientApplication implements CommandLineRunner {
+
+    @Autowired
+    private HelloClient helloClient;
 
     public static void main(String[] args) {
-        ApplicationContext context = SpringApplication.run(SoapClientApplication.class, args);
+        SpringApplication.run(SoapClientApplication.class, args);
+    }
 
-        HelloService helloService = context.getBean(HelloService.class);
-
-        String result = helloService.callSoapService();
-
-        System.out.println("Result: " + result);
+    @Override
+    public void run(String... args) throws Exception {
+        GetHelloResponse response = helloClient.sayHello("Ahmed");
+        System.out.println("Response from server: " + response.getHello());
     }
 }

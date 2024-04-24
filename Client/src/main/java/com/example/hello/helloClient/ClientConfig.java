@@ -11,7 +11,7 @@ public class ClientConfig {
     @Bean
     public Jaxb2Marshaller marshaller() {
         Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
-        marshaller.setPackagesToScan("io.spring.guides.gs_producing_web_service");
+        marshaller.setPackagesToScan("com.example.generated");
         return marshaller;
     }
 
